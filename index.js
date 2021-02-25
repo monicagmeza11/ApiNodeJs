@@ -1,5 +1,9 @@
 const express = require('express')
 const app = express()
+
+const morgan = require('morgan')
+const morganImp = morgan()
+
 const PORT =3001
 
 const personList = [
@@ -25,7 +29,13 @@ const personList = [
   }
 ]
 
+morgan.token('request-body', (request)=>{
+  return JSON.stringify(request.body)
+})
+
 app.use(express.json())
+app.use(morgan(':method :url :status :res[content-length] :request-body - :response-time ms'))
+
 
 app.get('/api/persons', (request, response) =>{
   response.json(personList)
@@ -71,6 +81,8 @@ app.post('/api/persons', (request, response) =>{
     response.json(personList)
   }
 })
+
+
 
 app.listen(PORT, ()=>{
   console.log('la app está corriendo', PORT)

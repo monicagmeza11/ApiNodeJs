@@ -4,7 +4,7 @@ const app = express()
 const morgan = require('morgan')
 const morganImp = morgan()
 
-const PORT =3001
+const PORT = process.env.PORT || 3001
 
 const personList = [
   {

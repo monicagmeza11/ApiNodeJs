@@ -92,12 +92,3 @@ app.post('/api/persons', (request, response) =>{
 app.listen(PORT, ()=>{
   console.log('la app está corriendo', PORT)
 })
-
-(async () => {
-
-  const response = await fetch('https://monicode-apppersons.herokuapp.com/api/persons')
-  const users = await response.json()
-  console.log(users)
-
-
-})()

@@ -4,6 +4,8 @@ const app = express()
 const morgan = require('morgan')
 const morganImp = morgan()
 
+const cors = require('cors')
+
 const PORT = process.env.PORT || 3001
 
 const personList = [
@@ -40,7 +42,7 @@ morgan.token('request-body', (request)=>{
 
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] :request-body - :response-time ms'))
-
+app.use(cors())
 
 app.get('/api/persons', (request, response) =>{
   response.json(personList)

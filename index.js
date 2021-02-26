@@ -26,6 +26,11 @@ const personList = [
     id: 4,
     name: 'Mary Poppendick',
     number: '30000000'
+  },
+  {
+    id: 5,
+    name: 'William Dimitrov',
+    number: '30000000'
   }
 ]
 

@@ -95,7 +95,7 @@ app.listen(PORT, ()=>{
 
 (async () => {
 
-  const response = await fetch('https://monicode-apppersons.herokuapp.com/*')
+  const response = await fetch('https://monicode-apppersons.herokuapp.com/api/persons')
   const users = await response.json()
   console.log(users)
 
